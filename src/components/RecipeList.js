@@ -1,0 +1,27 @@
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import '../style/index.css'
+
+class RecipeList extends Component{
+    render(){
+        console.log('this.props',this.props)
+        return (
+            <div className="recipe">
+                {
+                    this.props.recipereducer.map((recipe,index) => {
+                        return(
+                            <div key={index} >
+                        <h4>{recipe.title}</h4>
+                        </div>
+                    )})
+                }
+            </div>
+        )
+    }
+}
+
+
+function mapStateToProps(state){
+    return state;
+}
+export default connect(mapStateToProps,null)(RecipeList)
