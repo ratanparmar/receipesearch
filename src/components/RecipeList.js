@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import RecipeCard from './Recipecard'
 import '../style/index.css'
 
 class RecipeList extends Component{
@@ -7,14 +8,7 @@ class RecipeList extends Component{
         console.log('this.props',this.props)
         return (
             <div className="recipe">
-                {
-                    this.props.recipereducer.map((recipe,index) => {
-                        return(
-                            <div key={index} >
-                        <h4>{recipe.title}</h4>
-                        </div>
-                    )})
-                }
+                <RecipeCard recipeName={this.props}/>
             </div>
         )
     }
