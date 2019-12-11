@@ -2,6 +2,7 @@ import React , { Component } from 'react'
 import RecipeList from './RecipeList'
 import Searchbar from './Searchbar'
 import '../style/index.css'
+import FavouriteRecipe from './FavouriteRecipe'
 
 class App extends Component{
     render(){
@@ -12,6 +13,7 @@ class App extends Component{
                 <div className="App">
                     <Searchbar/>
                     <RecipeList/>
+                    <FavouriteRecipe/>
                 </div>
             </div>
         )

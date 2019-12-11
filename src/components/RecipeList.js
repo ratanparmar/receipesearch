@@ -5,17 +5,28 @@ import '../style/index.css'
 
 class RecipeList extends Component{
     render(){
-        console.log('this.props',this.props)
+        //console.log('this.props',this.props)
         return (
-            <div className="recipe">
-                <RecipeCard recipeName={this.props}/>
+            <div>
+                
+                {
+                    this.props.recipereducer.map((recipe,index)=>{
+                        return(
+                        <RecipeCard 
+                        key ={index} 
+                        recipe={recipe}
+                        favouriteButton={true}/>
+                        )
+                    })
+                }
             </div>
-        )
+        )}
+        
     }
-}
+
 
 
 function mapStateToProps(state){
-    return state;
+  return state;
 }
-export default connect(mapStateToProps,null)(RecipeList)
+export default connect(mapStateToProps,null)(RecipeList);
