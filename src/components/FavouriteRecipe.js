@@ -1,7 +1,8 @@
 import React,{ Component }from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import Recipecard from './Recipecard';
-
+import '../style/index.css'
 class FavouriteRecipe extends Component{
 
     render(){
@@ -9,8 +10,9 @@ class FavouriteRecipe extends Component{
         console.log(this.props);
         return(
             
-            <div className="App">
-                <h4>Favourite Recipe List:</h4>
+            <div >
+               {/*} <h4><Link to ='/'>Home</Link></h4>*/}
+                <h4 className="App1">Favourite Recipe List:</h4>
                     {
                         this.props.favourite.map((fav,index)=>{
                             return(

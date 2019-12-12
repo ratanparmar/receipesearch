@@ -3,11 +3,14 @@ body{
     
     padding-top: 5%;
 }
-.App{
+.form-inline{
     padding-top: 5%;
     padding-left: 28%;
 }
-
+.App1{
+    padding-top: 5%;
+    
+}
 
 .star{
     cursor: pointer;
@@ -24,4 +27,8 @@ body{
 
   .btn-light{
     background-color: #e0cade
+  }
+
+  .container{
+    padding-left: 395px;
   }
