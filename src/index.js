@@ -12,6 +12,11 @@ store.subscribe(()=> console.log(store.getState()));
 
 ReactDOM.render((
     <Provider store ={store}>
-    <App/>
+    <BrowserRouter>
+    <Switch>
+        <Route exact path='/' component={App}/>
+        <Route path='/favourites' component={FavouriteRecipe}/>
+    </Switch>
+    </BrowserRouter>
     </Provider>)
     ,document.getElementById('root'))

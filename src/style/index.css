@@ -7,6 +7,13 @@ body{
     padding-top: 5%;
     padding-left: 28%;
 }
+
+.form-inline label{
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+
 .App1{
     padding-top: 5%;
     
@@ -31,4 +38,9 @@ body{
 
   .container{
     padding-left: 395px;
+  }
+  .link{
+      position: absolute;
+      left: 30px;
+      top : 30px
   }

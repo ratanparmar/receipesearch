@@ -11,7 +11,7 @@ class FavouriteRecipe extends Component{
         return(
             
             <div >
-               {/*} <h4><Link to ='/'>Home</Link></h4>*/}
+                <h4 className='link'><Link to ='/'>Home</Link></h4>
                 <h4 className="App1">Favourite Recipe List:</h4>
                     {
                         this.props.favourite.map((fav,index)=>{

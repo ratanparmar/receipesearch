@@ -6,11 +6,13 @@ import '../style/index.css'
 
 class RecipeList extends Component{
     render(){
-        //console.log('this.props',this.props)
+        //console.log('this.props',this.props.starrerecipe)
         return (
-            <div>
-                {/*<h4><Link to ='/favourites'>favourites</Link></h4>*/}
-                
+            <div>{
+                this.props.starrerecipe.length>0
+                ? <h4 className='link'><Link to ='/favourites'>favourites</Link></h4>
+                : <div></div>   
+            }         
                 {
                     this.props.recipereducer.map((recipe,index)=>{
                         return(
