@@ -6,7 +6,7 @@ import '../style/index.css'
 
 class RecipeList extends Component{
     render(){
-        //console.log('this.props',this.props.starrerecipe)
+        // console.log('this.props',this.props)
         return (
             <div>{
                 this.props.starrerecipe.length>0
@@ -27,8 +27,6 @@ class RecipeList extends Component{
         )}
         
     }
-
-
 
 function mapStateToProps(state){
   return state;

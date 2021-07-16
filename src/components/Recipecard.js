@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../style/index.css';
 import { connect } from 'react-redux';
-import { favRecipe } from '../actions';
-
+import { favRecipe,unFavRecipe } from '../actions';
+import { Link } from 'react-router-dom'
 
 class RecipeCard extends Component{
     constructor(){
@@ -11,16 +11,30 @@ class RecipeCard extends Component{
             isFav:false
         }
     }
+    // componentDidMount(){
+    //     let recipe = this.props.recipe;
+    //     //console.log("hiiiiiiiiiiiiiii component mounting")
+        
+    // }
 
     favourite(recipe) {
+        let flag = true
+        recipe['flag'] = flag
         this.props.favRecipe(recipe);
-        this.setState({isFav:true})
-        
+    }
+    
+    unfavourite(recipe) {
+        this.props.unFavRecipe(recipe);
     }
     render(){
-        
+        let favFlag = false
         let recipe = this.props.recipe;
-        
+        Object.keys(this.props.starrerecipe).map((fav)=>{
+            if(this.props.starrerecipe[fav].recipe.label === recipe.recipe.label){
+                favFlag = this.props.starrerecipe[fav].flag
+            }
+        })
+
         return(
             <div className="container">
                 <div className="row">
@@ -30,8 +44,10 @@ class RecipeCard extends Component{
                                 {
                                     this.props.favouriteButton
                                     ?
-                                        this.state.isFav 
-                                        ? <div className='star'>&#9733;</div>
+                                    favFlag 
+                                        ? <div className='star'
+                                        onClick={()=>this.unfavourite(recipe)}
+                                        >&#9733;</div>
                                         : <div className='star' 
                                         onClick={()=>this.favourite(recipe)}>&#9734;
                                         </div>
@@ -39,18 +55,21 @@ class RecipeCard extends Component{
                                 }
                                 
                                 <div>
-                                    <a href={recipe.href} target="blank" className="btn btn-light btn-sm"> 
-                                        {recipe.title}
-                                    </a>
+                                    {/* <a href={recipe.href} target="blank" className="btn btn-light btn-sm">  */}
+                                        
+                                        <Link to ={`/favourites/${recipe.recipe.label}`} className="btn btn-light btn-sm">{recipe.recipe.label}</Link>
+                                    {/* </a> */}
                                 </div>
                                 <div className="card-body">
-                                    <p className="card-text">
-                                    {recipe.ingredients}
+                                    <p className="card-text" >
+                                    {recipe.recipe.ingredientLines}
                                     </p>
-                                    <img 
-                                    src={recipe.thumbnail} 
-                                    alt={recipe.title}
+                                    <img style={{float:'left'}}
+                                    src={recipe.recipe.image} 
+                                    alt={recipe.recipe.label}
                                     className="card-img"/>
+                                    {recipe.recipe.cuisineType?<p className="card-text"><span className="btn btn-light btn-sm">CuisineType:</span>{recipe.recipe.cuisineType}</p>:''}
+                                    
                                 </div>
                             </div>
                         }
@@ -60,5 +79,10 @@ class RecipeCard extends Component{
         )
     }
 }
+function mapStateToProps(state){
+    return {
+        starrerecipe:state.starrerecipe
+    }
+  }
 
-export default connect(null,{favRecipe})(RecipeCard);
+export default connect(mapStateToProps,{favRecipe,unFavRecipe})(RecipeCard);

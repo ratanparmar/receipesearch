@@ -2,7 +2,7 @@ import React , { Component } from 'react'
 import RecipeList from './RecipeList'
 import Searchbar from './Searchbar'
 import '../style/index.css'
-import FavouriteRecipe from './FavouriteRecipe'
+// import FavouriteRecipe from './FavouriteRecipe'
 
 class App extends Component{
     render(){

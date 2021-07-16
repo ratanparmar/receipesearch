@@ -1,5 +1,5 @@
 import  { combineReducers } from 'redux'
-import { SET_RECIPE,FAV_RECIPE } from '../actions'
+import { SET_RECIPE,FAV_RECIPE ,UNFAV_RECIPE} from '../actions'
 
 
 function recipereducer(state=[],action){
@@ -16,6 +16,12 @@ function starrerecipe(state=[],action){
         case FAV_RECIPE:
             state = [...state,action.recipe];
             return state;
+        case UNFAV_RECIPE:
+            // console.log(action)
+        state = state.filter((data)=>{
+          return data.recipe.label!==action.recipe.recipe.label
+        });
+        return state
         default:
             return state;
     }

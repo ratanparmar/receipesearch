@@ -14,14 +14,15 @@ class Searchbar extends Component{
     }
     search(){
         const {ingredients,dish} = this.state;
-        const url = `http://www.recipepuppy.com/api/?i=${ingredients}&q=${dish}`;
+        const url = `https://api.edamam.com/search?app_id=900da95e&app_key=40698503668e0bb3897581f4766d77f9&q=${ingredients},${dish}`;
         fetch(url,{
             method:'GET'
         })
         .then(res=>res.json())
         .then(data=> data)
         .then(json=>{
-             this.props.setrecipes(json.results)
+            // console.log(json)
+             this.props.setrecipes(json.hits)
         })
         
     }

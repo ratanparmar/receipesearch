@@ -30,7 +30,8 @@ class FavouriteRecipe extends Component{
 
 function mapsStateToProps(state){
     return {
-        favourite:state.starrerecipe
+        favourite:state.starrerecipe,
+        alldata:state
     }
 }
 export default connect(mapsStateToProps,null)(FavouriteRecipe);
