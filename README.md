@@ -26,4 +26,4 @@ Your app is ready to be deployed!
 
 ### `Run The App`
 Launch the application Food finder <br/>
-[Click here]() for more information.
+[Click here](https://ratanparmar.github.io/receipesearch/build/) for more information.
